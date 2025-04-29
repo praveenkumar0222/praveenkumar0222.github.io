@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Portfolio | Praveen Kumar Pentamalla</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="terminal-btn red"></span>
+                <span class="terminal-btn yellow"></span>
+                <span class="terminal-btn green"></span>
+            </div>
+            <div class="terminal-title">devops-terminal</div>
+        </div>
+        <div class="terminal-body">
+            <div class="terminal-line">$ <span class="typed-text"></span><span class="cursor-blink">|</span></div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="hexagon-grid">
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <div class="hexagon"></div>
+            <!-- More hexagons will be added via JS -->
+        </div>
+
+        <header class="header">
+            <div class="logo">//DEVOPS_ENGINEER</div>
+            <nav class="nav">
+                <a href="#about" class="nav-link">.about()</a>
+                <a href="#skills" class="nav-link">.skills()</a>
+                <a href="#projects" class="nav-link">.projects()</a>
+                <a href="#contact" class="nav-link">.contact()</a>
+            </nav>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </header>
+
+        <main>
+            <section id="hero" class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="title-line">Hello, I'm</span>
+                        <span class="title-line name">Praveen Kumar Pentamalla</span>
+                        <span class="title-line">DevOps & AWS Cloud Engineer</span>
+                    </h1>
+                    <p class="hero-subtitle">Building scalable, reliable cloud infrastructure with CI/CD pipelines and Kubernetes deployments.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="server-rack">
+                        <div class="server"></div>
+                        <div class="server"></div>
+                        <div class="server"></div>
+                        <div class="indicator"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="section about">
+                <div class="section-header">
+                    <h2>.about()</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>I automate infrastructure and optimize cloud deployments</h3>
+                        <p>Detail-oriented and result-driven DevOps & AWS Cloud Engineer with 2.9+ years of experience in automating cloud infrastructure, optimizing AWS resources, implementing CI/CD pipelines, and managing scalable containerized deployments using Docker and Kubernetes (EKS). Proficient in Infrastructure as Code (IaC) using Ansible, and skilled in designing cost-effective, secure, and high-availability architectures.</p>
+                        <div class="experience-cards">
+                            <div class="exp-card">
+                                <div class="exp-number" data-count="20">0</div>
+                                <div class="exp-text">% Cost Savings</div>
+                            </div>
+                            <div class="exp-card">
+                                <div class="exp-number" data-count="99.9">0</div>
+                                <div class="exp-text">% Uptime</div>
+                            </div>
+                            <div class="exp-card">
+                                <div class="exp-number" data-count="100">0</div>
+                                <div class="exp-text">Containers Managed</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="floating-cube"></div>
+                        <div class="floating-cube"></div>
+                        <div class="floating-cube"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="section skills">
+                <div class="section-header">
+                    <h2>.skills()</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Cloud Platforms</h3>
+                        <div class="skill-cloud">
+                            <div class="cloud-icon aws" data-skill="AWS">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <div class="cloud-icon azure" data-skill="Azure">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>DevOps Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Ansible</span>
+                            <span class="skill-tag">Jenkins</span>
+                            <span class="skill-tag">GitHub Actions</span>
+                            <span class="skill-tag">Prometheus</span>
+                            <span class="skill-tag">Grafana</span>
+                            <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">Nginx</span>
+                            <span class="skill-tag">Linux</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Infrastructure as Code</h3>
+                        <div class="iac-diagram">
+                            <div class="iac-node" data-tooltip="Ansible">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="iac-arrow">→</div>
+                            <div class="iac-node" data-tooltip="AWS">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <div class="iac-arrow">→</div>
+                            <div class="iac-node" data-tooltip="Kubernetes">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section projects">
+                <div class="section-header">
+                    <h2>.projects()</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-buttons">
+                                <span class="project-btn red"></span>
+                                <span class="project-btn yellow"></span>
+                                <span class="project-btn green"></span>
+                            </div>
+                            <h3>AWS Cost Optimization</h3>
+                        </div>
+                        <div class="project-content">
+                            <p>Designed and deployed AWS infrastructure (EC2, VPC, S3, EKS), reducing operational costs by 20% using reserved instances and rightsizing.</p>
+                            <div class="project-tech">
+                                <span>AWS</span>
+                                <span>EC2</span>
+                                <span>EKS</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link">View Details →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-buttons">
+                                <span class="project-btn red"></span>
+                                <span class="project-btn yellow"></span>
+                                <span class="project-btn green"></span>
+                            </div>
+                            <h3>CI/CD Pipeline</h3>
+                        </div>
+                        <div class="project-content">
+                            <p>Built and maintained CI/CD pipelines using Jenkins and GitHub Actions for automated testing, container image builds, and multi-environment deployments.</p>
+                            <div class="project-tech">
+                                <span>Jenkins</span>
+                                <span>GitHub Actions</span>
+                                <span>Docker</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link">View Details →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-buttons">
+                                <span class="project-btn red"></span>
+                                <span class="project-btn yellow"></span>
+                                <span class="project-btn green"></span>
+                            </div>
+                            <h3>Kubernetes Deployment</h3>
+                        </div>
+                        <div class="project-content">
+                            <p>Deployed microservices in Kubernetes clusters (EKS), containerized apps using Docker, and managed Docker images via Docker Hub.</p>
+                            <div class="project-tech">
+                                <span>Kubernetes</span>
+                                <span>EKS</span>
+                                <span>Docker</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section contact">
+                <div class="section-header">
+                    <h2>.contact()</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Let's automate something amazing together</h3>
+                        <p>I'm currently available for freelance work or full-time positions. If you have a project that needs DevOps expertise, let's talk.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>praveenkumarpentamalla@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+91-7702215874</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Hyderabad, Telangana, India</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/praveen-kumar-pentamalla-643030240" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">//DEVOPS_ENGINEER</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-copy">
+                    &copy; <span id="year"></span> Praveen Kumar Pentamalla. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
