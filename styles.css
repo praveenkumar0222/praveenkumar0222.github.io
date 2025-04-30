@@ -678,6 +678,15 @@
     box-shadow: 0 5px 15px rgba(108, 92, 231, 0.5);
   }
   
+  .social-link.whatsapp {
+    background: rgba(37, 211, 102, 0.1);
+    color: #25D366; /* WhatsApp brand color */
+  }
+
+  .social-link.whatsapp:hover {
+    background: #25D366;
+        color: white;
+  }
   .contact-form {
     flex: 1;
     background: rgba(255, 255, 255, 0.05);
@@ -1089,3 +1098,15 @@
       font-size: 2rem;
     }
   }
+
+
+
+  .social-link.whatsapp {
+    background: rgba(37, 211, 102, 0.1);
+    color: #25D366; /* WhatsApp brand color */
+}
+
+.social-link.whatsapp:hover {
+    background: #25D366;
+    color: white;
+}

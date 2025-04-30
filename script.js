@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 20);
     });
     
-    // Contact Form Submission (Single Handler)
+    // Contact Form Submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
@@ -128,43 +128,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const originalText = submitBtn.textContent;
             
             try {
-                // Change button state
                 submitBtn.textContent = 'Sending...';
                 submitBtn.disabled = true;
                 
-                // Send email
                 const response = await emailjs.sendForm(
                     'service_0ri6wvm', 
                     'template_ee691rc', 
                     contactForm
                 );
                 
-                // Success handling
                 showNotification('success', 'Message sent successfully!');
                 contactForm.reset();
-                
-                // Log success
-                console.log('Email successfully sent:', response);
+                console.log('Email sent:', response);
             } catch (error) {
-                // Error handling
-                console.error('EmailJS Error Details:', {
-                    status: error.status,
-                    text: error.text,
-                    fullError: error
-                });
-                
-                let errorMessage = 'Failed to send message. ';
-                if (error.status === 400) {
-                    errorMessage += 'Invalid template or service ID.';
-                } else if (error.status === 401) {
-                    errorMessage += 'Unauthorized - check your EmailJS public key.';
-                } else {
-                    errorMessage += `Error code: ${error.status}`;
-                }
-                
-                showNotification('error', errorMessage);
+                console.error('Email error:', error);
+                showNotification('error', `Failed to send: ${error.text || 'Please try again'}`);
             } finally {
-                // Reset button state
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
@@ -181,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         document.body.appendChild(notification);
         
-        // Remove after 5 seconds
         setTimeout(() => {
             notification.style.opacity = '0';
             setTimeout(() => notification.remove(), 300);
