@@ -1110,3 +1110,95 @@
     background: #25D366;
     color: white;
 }
+
+/* Project Modal Styles */
+.project-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--dark);
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 30px rgba(108, 92, 231, 0.5);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    color: var(--light);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--secondary);
+}
+
+#modalTitle {
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+/* #modalContent {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+} */
+
+#modalContent p {
+    margin-bottom: 15px;
+}
+
+#modalContent ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+#modalContent li {
+    margin-bottom: 8px;
+}
+
+.project-link {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transition);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.project-link:hover {
+    color: var(--light);
+    gap: 10px;
+    background: transparent;
+}
