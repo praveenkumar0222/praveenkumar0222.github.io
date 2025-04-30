@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize EmailJS
+    emailjs.init('DZfP1W-ofiAwVUlWl');
+
     // Custom cursor
     const cursor = document.querySelector('.cursor');
     document.addEventListener('mousemove', (e) => {
@@ -115,22 +118,75 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 20);
     });
     
-    // Form submission
+    // Contact Form Submission (Single Handler)
     const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            try {
+                // Change button state
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                
+                // Send email
+                const response = await emailjs.sendForm(
+                    'service_0ri6wvm', 
+                    'template_ee691rc', 
+                    contactForm
+                );
+                
+                // Success handling
+                showNotification('success', 'Message sent successfully!');
+                contactForm.reset();
+                
+                // Log success
+                console.log('Email successfully sent:', response);
+            } catch (error) {
+                // Error handling
+                console.error('EmailJS Error Details:', {
+                    status: error.status,
+                    text: error.text,
+                    fullError: error
+                });
+                
+                let errorMessage = 'Failed to send message. ';
+                if (error.status === 400) {
+                    errorMessage += 'Invalid template or service ID.';
+                } else if (error.status === 401) {
+                    errorMessage += 'Unauthorized - check your EmailJS public key.';
+                } else {
+                    errorMessage += `Error code: ${error.status}`;
+                }
+                
+                showNotification('error', errorMessage);
+            } finally {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+    
+    // Notification function
+    function showNotification(type, message) {
+        const notification = document.createElement('div');
+        notification.className = `form-notification ${type}`;
+        notification.innerHTML = `
+            <i class="fas fa-${type === 'success' ? 'check' : 'exclamation'}-circle"></i>
+            <span>${message}</span>
+        `;
+        document.body.appendChild(notification);
         
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        
-        // Here you would typically send the form data to a server
-        console.log({ name, email, message });
-        
-        // Show success message
-        alert('Thank you for your message! I will get back to you soon.');
-        contactForm.reset();
-    });
+        // Remove after 5 seconds
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
+    }
     
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();

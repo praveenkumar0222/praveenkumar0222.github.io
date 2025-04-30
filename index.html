@@ -30,7 +30,6 @@
             <div class="hexagon"></div>
             <div class="hexagon"></div>
             <div class="hexagon"></div>
-            <!-- More hexagons will be added via JS -->
         </div>
 
         <header class="header">
@@ -139,6 +138,23 @@
                     </div>
                     
                     <div class="skill-category">
+                        <h3>Digital Marketing</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">SEO</span>
+                            <span class="skill-tag">Email Marketing</span>
+                            <span class="skill-tag">Google Analytics</span>
+                            <span class="skill-tag">WordPress</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Testing</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Manual Testing</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
                         <h3>Infrastructure as Code</h3>
                         <div class="iac-diagram">
                             <div class="iac-node" data-tooltip="Ansible">
@@ -231,6 +247,7 @@
                 </div>
             </section>
 
+            <!-- <section id="contact" class="section contact"> -->
             <section id="contact" class="section contact">
                 <div class="section-header">
                     <h2>.contact()</h2>
@@ -263,13 +280,16 @@
                     <div class="contact-form">
                         <form id="contactForm">
                             <div class="form-group">
-                                <input type="text" id="name" placeholder="Your Name" required>
+                                <input type="text" id="name" name="from_name" placeholder="Your Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" id="email" placeholder="Your Email" required>
+                                <input type="email" id="email" name="from_email" placeholder="Your Email" required>
                             </div>
                             <div class="form-group">
-                                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                                <input type="mobile" id="mobile" name="from_mobile" placeholder="Your Mobile Number " required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Send Message</button>
                         </form>
@@ -294,6 +314,24 @@
         </footer>
     </div>
 
+    <!-- EmailJS Script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your Public Key
+        emailjs.init('DZfP1W-ofiAwVUlWl');
+        
+        // Test connection on load
+        window.onload = function() {
+            emailjs.send("service_0ri6wvm", "template_ee691rc", {
+                name: "Connection Test",
+                email: "test@example.com",
+                message: "Testing EmailJS connection"
+            })
+            .then(() => console.log("EmailJS connection test successful"))
+            .catch(e => console.error("EmailJS connection test failed:", e));
+        };
+    </script>
     <script src="script.js"></script>
+
 </body>
 </html>
