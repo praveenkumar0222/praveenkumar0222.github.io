@@ -211,3 +211,119 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+// Project Details Modal Functionality
+const projectLinks = document.querySelectorAll('.project-link');
+const projectModal = document.getElementById('projectModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalContent = document.getElementById('modalContent');
+const closeModal = document.querySelector('.close-modal');
+
+// Project details data
+const projectsData = {
+    'aws-cost': {
+        title: 'AWS Cost Optimization Project',
+        content: `
+            <p>Implemented a comprehensive AWS cost optimization strategy that reduced monthly cloud expenses by 20%.</p>
+            <h3>Key Achievements:</h3>
+            <ul>
+                <li>Analyzed existing AWS infrastructure and identified cost-saving opportunities</li>
+                <li>Implemented reserved instances for long-running workloads</li>
+                <li>Right-sized EC2 instances based on actual utilization metrics</li>
+                <li>Optimized S3 storage classes and lifecycle policies</li>
+                <li>Set up cost allocation tags and budgeting alerts</li>
+            </ul>
+            <h3>Technologies Used:</h3>
+            <div class="project-tech">
+                <span>AWS Cost Explorer</span>
+                <span>EC2</span>
+                <span>S3</span>
+                <span>EKS</span>
+                <span>CloudWatch</span>
+            </div>
+        `
+    },
+    'ci-cd': {
+        title: 'CI/CD Pipeline Implementation',
+        content: `
+            <p>Designed and implemented a robust CI/CD pipeline enabling automated testing and deployment.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Automated build and test process with Jenkins</li>
+                <li>GitHub Actions for PR validation and staging deployments</li>
+                <li>Docker containerization of applications</li>
+                <li>Multi-environment deployment strategy</li>
+                <li>Integration with SonarQube for code quality analysis</li>
+            </ul>
+            <h3>Technologies Used:</h3>
+            <div class="project-tech">
+                <span>Jenkins</span>
+                <span>GitHub Actions</span>
+                <span>Docker</span>
+                <span>Kubernetes</span>
+                <span>SonarQube</span>
+            </div>
+        `
+    },
+    'kubernetes': {
+        title: 'Kubernetes Deployment Project',
+        content: `
+            <p>Managed containerized microservices deployment on AWS EKS clusters.</p>
+            <h3>Key Responsibilities:</h3>
+            <ul>
+                <li>Designed and implemented Kubernetes cluster architecture</li>
+                <li>Containerized applications using Docker</li>
+                <li>Managed Docker images in Docker Hub</li>
+                <li>Implemented Helm charts for deployment</li>
+                <li>Configured monitoring with Prometheus and Grafana</li>
+            </ul>
+            <h3>Technologies Used:</h3>
+            <div class="project-tech">
+                <span>Kubernetes</span>
+                <span>EKS</span>
+                <span>Docker</span>
+                <span>Helm</span>
+                <span>Prometheus</span>
+            </div>
+        `
+    }
+};
+
+// Open modal when project link is clicked
+projectLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const projectId = this.getAttribute('data-project');
+        const project = projectsData[projectId];
+        
+        if (project) {
+            modalTitle.textContent = project.title;
+            modalContent.innerHTML = project.content;
+            projectModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+
+// Close modal
+closeModal.addEventListener('click', function() {
+    projectModal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+});
+
+// Close modal when clicking outside content
+projectModal.addEventListener('click', function(e) {
+    if (e.target === projectModal) {
+        projectModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Close modal with ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && projectModal.classList.contains('show')) {
+        projectModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+});
