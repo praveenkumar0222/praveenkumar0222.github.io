@@ -179,6 +179,7 @@
                     <div class="section-line"></div>
                 </div>
                 <div class="projects-grid">
+                    <!-- AWS Cost Optimization Project -->
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-buttons">
@@ -197,10 +198,11 @@
                             </div>
                         </div>
                         <div class="project-footer">
-                            <a href="#" class="project-link">View Details →</a>
+                            <button class="project-link" data-project="aws-cost">View Details →</button>
                         </div>
                     </div>
                     
+                    <!-- CI/CD Pipeline Project -->
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-buttons">
@@ -219,10 +221,11 @@
                             </div>
                         </div>
                         <div class="project-footer">
-                            <a href="#" class="project-link">View Details →</a>
+                            <button class="project-link" data-project="ci-cd">View Details →</button>
                         </div>
                     </div>
                     
+                    <!-- Kubernetes Deployment Project -->
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-buttons">
@@ -241,7 +244,7 @@
                             </div>
                         </div>
                         <div class="project-footer">
-                            <a href="#" class="project-link">View Details →</a>
+                            <button class="project-link" data-project="kubernetes">View Details →</button>
                         </div>
                     </div>
                 </div>
@@ -321,6 +324,14 @@
                 </div>
             </div>
         </footer>
+    </div>
+
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalContent"></div>
+        </div>
     </div>
 
     <!-- EmailJS Script -->
